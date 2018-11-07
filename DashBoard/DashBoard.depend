@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1541039957 source:d:\codeblocks\dahsboard\dashboard\render.cpp
+	<Windows.h>
+	<math.h>
+
+1540989846 source:d:\codeblocks\dahsboard\dashboard\main.cpp
+	<windows.h>
+	<math.h>
+	<iostream>
+
+1541233172 source:d:\codeblocks\dashboard\clock_board.cpp
+	<Windows.h>
+	<math.h>
+
+1541484140 source:d:\codeblocks\dashboard\slide_bar.cpp
+	<windows.h>
+
+1541484351 source:d:\codeblocks\dashboard\main.cpp
+	<windows.h>
+	<math.h>
+	<iostream>
+

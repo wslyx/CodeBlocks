@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1541235906 source:d:\codeblocks\littleshark\main.cpp
+	<tchar.h>
+	<windows.h>
+
