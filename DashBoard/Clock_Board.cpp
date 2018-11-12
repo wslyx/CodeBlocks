@@ -22,6 +22,7 @@ void Clock_Board(HWND hwnd, double aef) {
 
 	length = wsprintf(szBuffer, (char *)"dashboard_1");
 
+
 	TextOut(hdc, left+110, top+200, szBuffer, length);
 
 	ReleaseDC(hwnd,hdc);

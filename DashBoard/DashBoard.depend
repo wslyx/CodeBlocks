@@ -8,15 +8,18 @@
 	<math.h>
 	<iostream>
 
-1541233172 source:d:\codeblocks\dashboard\clock_board.cpp
+1541584528 source:d:\codeblocks\dashboard\clock_board.cpp
 	<Windows.h>
 	<math.h>
 
-1541484140 source:d:\codeblocks\dashboard\slide_bar.cpp
+1541566247 source:d:\codeblocks\dashboard\slide_bar.cpp
 	<windows.h>
 
-1541484351 source:d:\codeblocks\dashboard\main.cpp
+1542002324 source:d:\codeblocks\dashboard\main.cpp
 	<windows.h>
 	<math.h>
 	<iostream>
+
+1542002325 source:d:\codeblocks\dashboard\paint.cpp
+	<windows.h>
 

@@ -3,12 +3,14 @@
 #include <iostream>
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK ChildWndProc(HWND,UINT,WPARAM,LPARAM);
 
 extern void Render(HWND hWnd,double aef);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR szCmdLine, int iCmdShow)
 {
 	static TCHAR szAppName[] = TEXT("DashBoard");
+	static TCHAR ChildAppName[] = TEXT("ChildWindow");
 
 	HWND		hwnd;
 
@@ -45,6 +47,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR szCmdLine, 
 
 	}
 
+	wndclass.lpfnWndProc=ChildWndProc;
+	wndclass.cbWndExtra=sizeof(long);
+	wndclass.hIcon=NULL;
+	wndclass.lpszClassName=ChildAppName;
+
+	RegisterClass(&wndclass);
+
 	hwnd = CreateWindow(szAppName, TEXT("smart dashboard"),
 		WS_EX_LAYERED | WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
 		CW_USEDEFAULT,CW_USEDEFAULT,
@@ -77,6 +86,7 @@ int DCount=0,UCount=0;
 
 extern Slide_Bar(HWND,int,int,int,int);
 extern Clock_Board(HWND,double);
+extern paint(HWND,HINSTANCE);
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -96,6 +106,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	switch (message)
 	{
+
+    case WM_CREATE:
+
+        HWND hButton;
+
+        hButton = CreateWindow ( TEXT("button"), BS_PUSHBUTTON, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,100, 400,20, 40,hwnd, (HMENU)1,(HINSTANCE)GetWindowLongPtr(hwnd,GWLP_HINSTANCE), NULL) ;
 
 	case   WM_SIZE:
 
@@ -127,7 +143,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         SelectObject(hdc,GetStockObject(WHITE_PEN));
 
-        Rectangle(hdc,700,490,800,710);
+        Rectangle(hdc,800,490,860,510);//Ë¢ÐÂ¾ØÐÎ
 
         SelectObject(hdc,GetStockObject(BLACK_PEN));
 
@@ -135,16 +151,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         ReleaseDC(hwnd,hdc);
 
-        //hdc=GetDC(NULL);
-
-        //length=wsprintf(szBuffer,"hello Desktop:%d",yPos);
-        //TextOut(hdc,300,300,szBuffer,length);
-
-        //ReleaseDC(NULL,hdc);
-
 		return 0;
 
     case WM_LBUTTONDOWN:
+
+        MessageBeep(0);
 
         hdc=GetDC(hwnd);
 
@@ -196,4 +207,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	}
 	return DefWindowProc(hwnd, message, wParam, lParam);
+}
+
+LRESULT CALLBACK ChildWndProc(HWND hwnd,UINT uint,WPARAM wparam,LPARAM lparam)
+{
+
 }

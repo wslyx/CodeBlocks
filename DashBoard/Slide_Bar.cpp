@@ -14,11 +14,11 @@ int Slide_Bar(HWND hwnd,int xPos,int yPos,int DCount,int UCount)
 
     SelectObject(hdc,GetStockObject(WHITE_PEN));
 
-    Rectangle(hdc,left,top,right,buttom+30);
+    Rectangle(hdc,left-10,top-10,right+10,buttom+30);//Ë¢ÐÂ¾ØÐÎ
 
     SelectObject(hdc,GetStockObject(BLACK_PEN));
 
-    Rectangle(hdc,left+20,top,right-20,buttom);
+    Rectangle(hdc,left,top,right,buttom);
 
     if (xPos<right)
     if (xPos>left)
